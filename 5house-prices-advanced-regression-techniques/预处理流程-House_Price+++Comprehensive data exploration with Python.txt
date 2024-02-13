@@ -1,0 +1,17 @@
+预处理流程：
+1. 删除空值 > 1 的数据
+- df_train = df_train.drop((missing_data[missing_data['Total'] > 1]).index,1)
+2. 去除Electrical属性中空值的一条record
+- df_train = df_train.drop(df_train.loc[df_train['Electrical'].isnull()].index)
+3. 对SalePrice取自然对数
+- df_train['SalePrice'] = np.log(df_train['SalePrice'])
+4. 去除了两个GrLivArea的离群值
+5. 对GrLivArea取自然对数
+- df_train['GrLivArea'] = np.log(df_train['GrLivArea'])
+6. 根据"TotalBsmtSF"是否为零，增加"HasBsmt"属性
+- df_train['HasBsmt'] = (df_train['TotalBsmtSF'] > 0).astype(int)
+7. 对不为零的"TotalBsmtSF"属性值，取对数
+- df_train.loc[df_train["HasBsmt"]==1,'TotalBsmtSF'] = np.log(df_train["TotalBsmtSF"])
+8. 生成dummies variables
+- df_train = pd.get_dummies(df_train)
+
