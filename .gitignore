@@ -1,3 +1,7 @@
+# MacOS
+.Ds_Store
+
+# Large Files
 *.csv
 *.log
 
