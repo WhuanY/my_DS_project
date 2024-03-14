@@ -4,6 +4,11 @@
 # Large Files
 *.csv
 *.log
+*.jsonl
+
+
+
+
 
 *.temp
 # Byte-compiled / optimized / DLL files
@@ -110,4 +115,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+
+# 
 
